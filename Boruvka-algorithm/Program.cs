@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Boruvka_Algorithm;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        GraphMatrix graph = new GraphMatrix(5);
+        graph.PrintGraphMatrix();
+    }
+}
