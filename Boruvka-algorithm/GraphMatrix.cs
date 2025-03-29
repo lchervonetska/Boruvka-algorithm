@@ -11,6 +11,12 @@ public class GraphMatrix
         Matrix = new int[vertices, vertices];
     }
 
+    public void AddEdge(int u, int v, int weight)
+    {
+        Matrix[u, v] = weight;
+        Matrix[v, u] = weight;
+    }
+
     public void PrintGraphMatrix()
     {
         for (int i = 0; i < Vertices; i++)
