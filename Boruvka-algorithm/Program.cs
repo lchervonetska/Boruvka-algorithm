@@ -1,3 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Boruvka_Algorithm;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    static void Main(string[] args)
+    {
+        GraphGenerator generator = new GraphGenerator(); 
+        GraphAdjList graph = generator.GenerateRandomAdjList(5, 0.5);
+        graph.PrintGraphAdjList();
+
+    }
+}
