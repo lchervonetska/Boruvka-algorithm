@@ -33,49 +33,46 @@ public class BoruvkaAlgorithm
 
         while (components > 1)
         {
-            int[] cheapestEdge = new int[n];
-            int[] cheapestEdgeWeight = new int[n];
-
+            var cheapest = new (int u, int v, int weight)[n];
             for (int i = 0; i < n; i++)
             {
-                cheapestEdge[i] = -1;
-                cheapestEdgeWeight[i] = int.MaxValue;
+                cheapest[i] = (-1, -1, int.MaxValue);
             }
 
             for (int u = 0; u < n; u++)
             {
-                for (int v = u + 1; v < n; v++)
+                for (int v = 0; v < n; v++)
                 {
                     int weight = graph[u, v];
-                    if (u != v && weight > 0)
+                    if (weight > 0)
                     {
-                        int rootU = Find(u);
-                        int rootV = Find(v);
-                        if (rootU != rootV && weight < cheapestEdgeWeight[rootU])
+                        int setU = Find(u);
+                        int setV = Find(v);
+                        if (setU != setV && weight < cheapest[setU].weight)
                         {
-                            cheapestEdge[rootU] = v;
-                            cheapestEdgeWeight[rootU] = weight;
+                            cheapest[setU] = (u, v, weight);
                         }
                     }
                 }
             }
 
-            for (int u = 0; u < n; u++)
+            for (int i = 0; i < n; i++)
             {
-                int rootU = Find(u);
-                int v = cheapestEdge[rootU];
-                if (v != 0)
+                var (u, v, weight) = cheapest[i];
+                if (u != -1 && v != -1)
                 {
-                    int rootV = Find(v);
-                    if (rootU != rootV)
+                    int setU = Find(u);
+                    int setV = Find(v);
+                    if (setU != setV)
                     {
-                        Union(rootU, rootV);
-                        mstEdges.Add((u,v));
-                        totalWeight += graph[u, v];
+                        Union(setU, setV);
+                        mstEdges.Add((u + 1, v + 1)); 
+                        totalWeight += weight;
                         components--;
                     }
                 }
             }
+
         }
 
         return (mstEdges, totalWeight);
