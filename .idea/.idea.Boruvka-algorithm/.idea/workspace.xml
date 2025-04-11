@@ -8,9 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51ae8db7-3a8f-4aeb-815d-d3f231b38e79" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Boruvka-algorithm/AdjListGenerator.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Boruvka-algorithm/GraphAdjList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Boruvka-algorithm/GraphMatrix.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Boruvka-algorithm/MatrixGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Boruvka-algorithm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Boruvka-algorithm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boruvka-algorithm/GraphMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Boruvka-algorithm/GraphMatrix.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Boruvka-algorithm/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Boruvka-algorithm/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/lchervonetska/Boruvka-algorithm.git&quot;,
-    &quot;accountId&quot;: &quot;2aa430b3-960c-4461-83f3-734464367dc4&quot;
+    &quot;accountId&quot;: &quot;b074d5d8-1e4b-4f1a-8f1c-a3aee92a999a&quot;
   }
 }</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -58,7 +60,7 @@
     &quot;.NET Project.Boruvka-algorithm.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;grapth-type&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging graph-generator&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/VS/projects/buruvka&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -104,6 +106,10 @@
       <workItem from="1743095690795" duration="2535000" />
       <workItem from="1743098257742" duration="4254000" />
       <workItem from="1743144093023" duration="37000" />
+      <workItem from="1744196693018" duration="1062000" />
+      <workItem from="1744305221316" duration="797000" />
+      <workItem from="1744307057937" duration="9242000" />
+      <workItem from="1744355620115" duration="199000" />
     </task>
     <task id="LOCAL-00001" summary="files">
       <option name="closed" value="true" />
