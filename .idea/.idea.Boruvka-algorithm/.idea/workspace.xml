@@ -7,10 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51ae8db7-3a8f-4aeb-815d-d3f231b38e79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Boruvka-algorithm/GraphAdjList.cs" afterDir="false" />
+    <list default="true" id="51ae8db7-3a8f-4aeb-815d-d3f231b38e79" name="Changes" comment="Bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Boruvka-algorithm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Boruvka-algorithm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boruvka-algorithm/GraphMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Boruvka-algorithm/GraphMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boruvka-algorithm/BoruvkaAlgorithm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Boruvka-algorithm/BoruvkaAlgorithm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Boruvka-algorithm/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Boruvka-algorithm/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,23 +23,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="grapth-generator" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;lchervonetska&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/lchervonetska/Boruvka-algorithm.git&quot;,
-    &quot;accountId&quot;: &quot;2aa430b3-960c-4461-83f3-734464367dc4&quot;
-  }
-}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -53,22 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.Boruvka-algorithm.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;grapth-type&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/VS/projects/buruvka&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.Boruvka-algorithm.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "boruvka-algorithm",
+    "last_opened_file_path": "D:/VS/projects/buruvka",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Boruvka-algorithm" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -99,37 +86,16 @@
       <updated>1743093484376</updated>
       <workItem from="1743093486199" duration="459000" />
       <workItem from="1743094036054" duration="27000" />
-      <workItem from="1743094087554" duration="1531000" />
-      <workItem from="1743095649306" duration="6000" />
-      <workItem from="1743095690795" duration="2535000" />
-      <workItem from="1743098257742" duration="4254000" />
-      <workItem from="1743144093023" duration="37000" />
     </task>
-    <task id="LOCAL-00001" summary="files">
+    <task id="LOCAL-00001" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1743094307712</created>
+      <created>1744374201478</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1743094307712</updated>
+      <updated>1744374201478</updated>
     </task>
-    <task id="LOCAL-00002" summary="files">
-      <option name="closed" value="true" />
-      <created>1743094317626</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1743094317626</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Ability to create graph">
-      <option name="closed" value="true" />
-      <created>1743095556549</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1743095556549</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,43 +103,9 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="ac5f546b-eed4-4f62-b330-b835e4311ddd" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="grapth-type" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="ac5f546b-eed4-4f62-b330-b835e4311ddd">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="files" />
-    <MESSAGE value="Ability to create graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ability to create graph" />
+    <MESSAGE value="Bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
   </component>
 </project>
