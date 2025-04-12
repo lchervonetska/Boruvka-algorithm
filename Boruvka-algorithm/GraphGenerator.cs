@@ -2,11 +2,11 @@
 
 public class GraphGenerator
 {
-    public GraphAdjList GenerateRandomAdjList(int n, double delta)
+    public GraphAdjList GenerateRandomAdjList(int n, double seed)
     {
         GraphAdjList graph = new GraphAdjList(n);
         int maxEdges = n * (n - 1) / 2;
-        int targetEdges = (int)(delta * maxEdges);
+        int targetEdges = (int)(seed * maxEdges);
         HashSet<string> adjList = new HashSet<string>();
         Random random = new Random();
         while (adjList.Count < targetEdges)
@@ -29,11 +29,11 @@ public class GraphGenerator
         return graph;
     }
 
-    public GraphMatrix GenerateRandomMatrix(int n, double delta)
+    public GraphMatrix GenerateRandomMatrix(int n, double seed)
     {
         GraphMatrix graph = new GraphMatrix(n); 
         int maxEdges = n * (n - 1) / 2;
-        int targetEdges = (int)(delta * maxEdges);
+        int targetEdges = (int)(seed * maxEdges);
         HashSet<string> matrix = new HashSet<string>();
         Random random = new Random();
         while (matrix.Count < targetEdges)
