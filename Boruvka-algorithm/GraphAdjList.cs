@@ -4,28 +4,29 @@ namespace Boruvka_Algorithm;
 
 public class GraphAdjList
 {
-   private Dictionary<int, List<(int, int)>> adjList;
    public int Vertices { get; }
+   public Dictionary<int, List<(int, int)>> AdjList { get; }
+
 
    public GraphAdjList(int vertices)
    {
       Vertices = vertices;
-      adjList = new Dictionary<int, List<(int, int)>>();
+      AdjList = new Dictionary<int, List<(int, int)>>();
       for (int i = 0; i < vertices; i++)
       {
-         adjList[i] = new List<(int, int)>();
+         AdjList[i] = new List<(int, int)>();
       }
    }
    
    public void AddEdge(int u, int v, int weight)
    {
-      adjList[u].Add((v, weight));
-      adjList[v].Add((u, weight));
+      AdjList[u].Add((v, weight));
+      AdjList[v].Add((u, weight));
    }
 
    public void PrintGraphAdjList()
    {
-      foreach (var i in adjList )
+      foreach (var i in AdjList )
       {
          Console.Write($"{i.Key} ->");
          foreach (var j in i.Value)

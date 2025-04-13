@@ -2,7 +2,7 @@
 
 public class GraphMatrix
 {
-    private int[,] Matrix;
+    public int[,] Matrix;
     public int Vertices { get; }
 
     public GraphMatrix(int vertices)

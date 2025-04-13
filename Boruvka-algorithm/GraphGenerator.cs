@@ -2,11 +2,11 @@
 
 public class GraphGenerator
 {
-    public GraphAdjList GenerateRandomAdjList(int n, double seed)
+    public GraphAdjList GenerateRandomAdjList(int n, double density)
     {
         GraphAdjList graph = new GraphAdjList(n);
         int maxEdges = n * (n - 1) / 2;
-        int targetEdges = Math.Max(n-1,(int)(seed * maxEdges));
+        int targetEdges = Math.Max(n-1,(int)(density * maxEdges));
         HashSet<string> adjList = new HashSet<string>();
         Random random = new Random();
         List<int> vertices = Enumerable.Range(0, n).ToList();
@@ -44,11 +44,11 @@ public class GraphGenerator
         return graph;
     }
 
-    public GraphMatrix GenerateRandomMatrix(int n, double seed)
+    public GraphMatrix GenerateRandomMatrix(int n, double density)
     {
         GraphMatrix graph = new GraphMatrix(n); 
         int maxEdges = n * (n - 1) / 2;
-        int targetEdges = (int)(seed * maxEdges);
+        int targetEdges = (int)(density * maxEdges);
         HashSet<string> matrix = new HashSet<string>();
         Random random = new Random();
         List<int> vertices = Enumerable.Range(0, n).ToList();
