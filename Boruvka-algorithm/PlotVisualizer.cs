@@ -118,13 +118,13 @@ public class PlotVisualizer
         var listModel = CreateModel("List Only", CreateListSeries(lines));
 
         var combinedModelForExport = CreateModel(
-            "Boruvka Execution Time (Average of 10 runs)",
+            "Boruvka Execution Time (Average of 20 runs)",
             CreateMatrixSeries(lines),
             CreateListSeries(lines)
         );
 
         var combinedModelForView = CreateModel(
-            "Boruvka Execution Time (Average of 10 runs)",
+            "Boruvka Execution Time (Average of 20 runs)",
             CreateMatrixSeries(lines),
             CreateListSeries(lines)
         );
