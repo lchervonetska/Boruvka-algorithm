@@ -10,8 +10,14 @@ public class ExperimentBatch
         int[] sizes = { 20, 40, 60, 80, 100, 120, 140, 160, 180, 200 };
         double[] densities = { 0.1, 0.3, 0.5, 0.7, 0.9 };
 
-        string resultDir = "C:\\Users\\Legion\\RiderProjects\\Boruvka-algorithm\\Boruvka-algorithm\\Result";
+        string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+        string resultDir = Path.Combine(baseDir, "Result");
+
+        if (!Directory.Exists(resultDir))
+            Directory.CreateDirectory(resultDir);
+
         string resultPath = Path.Combine(resultDir, "results_comparison.csv");
+
 
         var results = new List<string>();
         results.Add("Size,Density,MatrixTime(ms),ListTime(ms)");

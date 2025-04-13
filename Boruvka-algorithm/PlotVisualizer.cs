@@ -109,10 +109,11 @@ public class PlotVisualizer
 
     public static void ShowChart()
     {
-        var path = "C:\\Users\\Legion\\RiderProjects\\Boruvka-algorithm\\Boruvka-algorithm\\Result\\results_comparison.csv";
-        var lines = File.ReadAllLines(path).Skip(1).ToList();
+        var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+        var outputDir = Path.Combine(baseDir, "Result");
+        var path = Path.Combine(outputDir, "results_comparison.csv");
 
-        var outputDir = "C:\\Users\\Legion\\RiderProjects\\Boruvka-algorithm\\Boruvka-algorithm\\Result";
+        var lines = File.ReadAllLines(path).Skip(1).ToList();
 
         var matrixModel = CreateModel("Matrix Only", CreateMatrixSeries(lines));
         var listModel = CreateModel("List Only", CreateListSeries(lines));
@@ -149,4 +150,5 @@ public class PlotVisualizer
         form.Controls.Add(plotView);
         Application.Run(form);
     }
+
 }

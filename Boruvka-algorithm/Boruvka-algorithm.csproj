@@ -15,8 +15,4 @@
       <PackageReference Include="SkiaSharp" Version="3.119.0-preview.1.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Result\" />
-    </ItemGroup>
-
 </Project>
