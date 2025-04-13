@@ -9,55 +9,58 @@ namespace Boruvka_Algorithm;
 
 public class PlotVisualizer
 {
-    private static LineSeries CreateMatrixSeries(IEnumerable<string> lines)
+    private static List<LineSeries> CreateAllSeries(IEnumerable<string> lines, Func<string, bool> filter)
     {
-        var series = new LineSeries
-        {
-            Title = "Matrix",
-            MarkerType = MarkerType.Circle,
-            MarkerSize = 5,
-            MarkerStroke = OxyColors.MediumVioletRed,
-            MarkerFill = OxyColors.MediumVioletRed,
-            Color = OxyColors.MediumVioletRed,
-            StrokeThickness = 2
-        };
+        var matrixGroups = new Dictionary<string, LineSeries>();
+        var listGroups = new Dictionary<string, LineSeries>();
 
         foreach (var line in lines)
         {
             var parts = line.Split(',');
-            int size = int.Parse(parts[0]);
-            double matrix = double.Parse(parts[2], CultureInfo.InvariantCulture);
-            series.Points.Add(new DataPoint(size, matrix));
+            var size = int.Parse(parts[0]);
+            var density = parts[1];
+            var matrix = double.Parse(parts[2], CultureInfo.InvariantCulture);
+            var list = double.Parse(parts[3], CultureInfo.InvariantCulture);
+
+            if (!filter(density))
+                continue;
+
+            if (!matrixGroups.ContainsKey(density))
+            {
+                matrixGroups[density] = new LineSeries
+                {
+                    Title = $"Matrix ({density})",
+                    MarkerType = MarkerType.Circle,
+                    MarkerSize = 4,
+                    MarkerStroke = OxyColors.MediumVioletRed,
+                    MarkerFill = OxyColors.MediumVioletRed,
+                    Color = OxyColors.MediumVioletRed,
+                    StrokeThickness = 2
+                };
+            }
+
+            if (!listGroups.ContainsKey(density))
+            {
+                listGroups[density] = new LineSeries
+                {
+                    Title = $"List ({density})",
+                    MarkerType = MarkerType.Square,
+                    MarkerSize = 4,
+                    MarkerStroke = OxyColors.MediumPurple,
+                    MarkerFill = OxyColors.MediumPurple,
+                    Color = OxyColors.MediumPurple,
+                    StrokeThickness = 2
+                };
+            }
+
+            matrixGroups[density].Points.Add(new DataPoint(size, matrix));
+            listGroups[density].Points.Add(new DataPoint(size, list));
         }
 
-        return series;
+        return matrixGroups.Values.Concat(listGroups.Values).ToList();
     }
 
-    private static LineSeries CreateListSeries(IEnumerable<string> lines)
-    {
-        var series = new LineSeries
-        {
-            Title = "List",
-            MarkerType = MarkerType.Square,
-            MarkerSize = 5,
-            MarkerStroke = OxyColors.MediumPurple,
-            MarkerFill = OxyColors.MediumPurple,
-            Color = OxyColors.MediumPurple,
-            StrokeThickness = 2
-        };
-
-        foreach (var line in lines)
-        {
-            var parts = line.Split(',');
-            int size = int.Parse(parts[0]);
-            double list = double.Parse(parts[3], CultureInfo.InvariantCulture);
-            series.Points.Add(new DataPoint(size, list));
-        }
-
-        return series;
-    }
-
-    private static PlotModel CreateModel(string title, params LineSeries[] series)
+    private static PlotModel CreateModel(string title, IEnumerable<LineSeries> series)
     {
         var model = new PlotModel
         {
@@ -115,29 +118,30 @@ public class PlotVisualizer
 
         var lines = File.ReadAllLines(path).Skip(1).ToList();
 
-        var matrixModel = CreateModel("Matrix Only", CreateMatrixSeries(lines));
-        var listModel = CreateModel("List Only", CreateListSeries(lines));
+        // Основний комбінований графік
+        var exportSeries = CreateAllSeries(lines, _ => true);
+        var modelForExport = CreateModel("Boruvka Execution Time (Average of 20 runs)", exportSeries);
+        ExportToPng(modelForExport, Path.Combine(outputDir, "combined_chart.png"));
 
-        var combinedModelForExport = CreateModel(
-            "Boruvka Execution Time (Average of 20 runs)",
-            CreateMatrixSeries(lines),
-            CreateListSeries(lines)
-        );
+        // Окремі графіки по щільностях
+        var densities = lines.Select(line => line.Split(',')[1]).Distinct();
 
-        var combinedModelForView = CreateModel(
-            "Boruvka Execution Time (Average of 20 runs)",
-            CreateMatrixSeries(lines),
-            CreateListSeries(lines)
-        );
+        foreach (var density in densities)
+        {
+            var series = CreateAllSeries(lines, d => d == density);
+            var model = CreateModel($"Boruvka Execution Time (Density = {density})", series);
+            var fileName = $"chart_density_{density.Replace(".", "_")}.png"; // "." замінити на "_", якщо є
+            ExportToPng(model, Path.Combine(outputDir, fileName));
+        }
 
-        ExportToPng(matrixModel, Path.Combine(outputDir, "matrix_chart.png"));
-        ExportToPng(listModel, Path.Combine(outputDir, "list_chart.png"));
-        ExportToPng(combinedModelForExport, Path.Combine(outputDir, "combined_chart.png"));
+        // Віконна версія комбінованого графіку
+        var viewSeries = CreateAllSeries(lines, _ => true);
+        var modelForView = CreateModel("Boruvka Execution Time (Average of 20 runs)", viewSeries);
 
         var plotView = new PlotView
         {
             Dock = DockStyle.Fill,
-            Model = combinedModelForView
+            Model = modelForView
         };
 
         var form = new Form
@@ -152,3 +156,4 @@ public class PlotVisualizer
     }
 
 }
+
