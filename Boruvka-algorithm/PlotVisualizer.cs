@@ -118,23 +118,20 @@ public class PlotVisualizer
 
         var lines = File.ReadAllLines(path).Skip(1).ToList();
 
-        // Основний комбінований графік
         var exportSeries = CreateAllSeries(lines, _ => true);
         var modelForExport = CreateModel("Boruvka Execution Time (Average of 20 runs)", exportSeries);
         ExportToPng(modelForExport, Path.Combine(outputDir, "combined_chart.png"));
 
-        // Окремі графіки по щільностях
         var densities = lines.Select(line => line.Split(',')[1]).Distinct();
 
         foreach (var density in densities)
         {
             var series = CreateAllSeries(lines, d => d == density);
             var model = CreateModel($"Boruvka Execution Time (Density = {density})", series);
-            var fileName = $"chart_density_{density.Replace(".", "_")}.png"; // "." замінити на "_", якщо є
+            var fileName = $"chart_density_{density.Replace(".", "_")}.png";
             ExportToPng(model, Path.Combine(outputDir, fileName));
         }
 
-        // Віконна версія комбінованого графіку
         var viewSeries = CreateAllSeries(lines, _ => true);
         var modelForView = CreateModel("Boruvka Execution Time (Average of 20 runs)", viewSeries);
 
